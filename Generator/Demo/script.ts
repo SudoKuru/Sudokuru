@@ -537,3 +537,27 @@ async function getHint():Promise<void> {
     // Go to the next step which reflects the hint given
     nextStep();
 }
+
+/**
+ * Removes all puzzles from puzzlesToFilter textarea that do not contain the given strategy
+ */
+async function filterPuzzles():Promise<void> {
+    // Get input board from user input box and create request url
+    let url:string = "http://localhost:3100/getBackFilteredPuzzles?strategy=";
+    if ((<HTMLSelectElement>document.getElementById("puzzleFilter")).value !== "POINTING_PAIR") {
+        (<HTMLTextAreaElement>document.getElementById("puzzlesToFilter")).value = "This strategy isn't yet supported by the filterPuzzles function in script.ts";
+        return;
+    }
+    url += "6";
+    url += "&puzzles=";
+    let puzzles:string[] = (<HTMLTextAreaElement>document.getElementById("puzzlesToFilter")).value.split("\n");
+    url += JSON.stringify(puzzles);
+
+    // Call and await Solvers response
+    let res:Response = await fetch(url);
+    let data = await res.json();
+
+    //@ts-ignore
+    document.getElementById("puzzlesToFilter").value = JSON.stringify(data);
+    return;
+}

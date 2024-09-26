@@ -500,29 +500,6 @@ bun start
 ```
 ```shell
 # Can open interactive Solver Demo in browser while Demo Server is running (Generator/Demo/demo.html)
-
-# Demo Server provides the following fakes for Puzzle Class (use http://localhost:3100/ as url)
-# Puzzles.startGame(): Will overwrite text file with activeGame constant and return it to user
-# Puzzles.getGame(): Will return the activeGame from text file or return 404 error if the text file doesn't exist
-# Puzzles.saveGame(): Attempts to save changes to activeGame stored locally in a text file and returns true if successful
-# Puzzles.finishGame(): Attempts to delete activeGame stored locally in a text file and returns true if successful
-# Drills.getGame(): Will return a puzzle string constant
-
-# Can modify a lessons by doing the following:
-1. Log into AWS Console using team IAM user
-2. Navigate to S3
-3. Navigate to sudokuru bucket
-4. Navigate to Lessons folder
-5. Download the lessons json file e.g. AMEND_NOTES.json
-6. Make changes locally to the json file
-7. Upload the json file (it will overwrite the old version)
-
-# Can add a lesson by doing the following:
-1. Navigate to S3 sudokuru bucket Lessons folder same as in modifying lesson instructions above
-2. Upload the new lesson json file using the same format as the existing ones
-3. Download strategies.json
-4. Add the new strategies name (same as uploaded file name) to strategies.json locally
-5. Upload the json file (it will overwrite the old version)
 ```
-Official TypeDoc Documentation is Hosted Here: https://sudokuru.github.io/SudokuPuzzleGenerator/
+Official TypeDoc Documentation is Hosted Here: https://sudokuru.github.io/Sudokuru/
 
